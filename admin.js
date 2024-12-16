@@ -6,6 +6,7 @@ console.log(kafkatopic)
 async function init() {
     console.log("init started");
     const admin = kafka.admin()
+    await admin.connect()
     console.log("admin created");
 
     await admin.createTopics({
@@ -20,7 +21,6 @@ async function init() {
     console.log("topic and partitions are created");
 
     // remember to connect and disconnect when you are done
-    await admin.connect()
     await admin.disconnect()
     console.log("admin disconnect");
 }

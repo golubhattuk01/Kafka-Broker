@@ -1,8 +1,7 @@
 const { kafka } = require('./client');
 require('dotenv').config();
 const groupId = process.env.KAFKA_GROUP_ID;
-const kafkatopic = process.env.KAFKA_TOPIC;
-
+const kafkatopic = process.env.KAFKA_TOPIC2;
 async function init() {
     console.log("init started");
 

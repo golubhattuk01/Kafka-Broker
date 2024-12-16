@@ -33,6 +33,11 @@ async function init() {
          await producer.send({
             topic: kafkatopic,
             messages: [
+                // i can decide which partition inside topic will get the data 
+                // one consumer from a group can consume only one partiton , 2 consumer from a group can't consume same partiton 
+                // two consumer from differennt group can consume same data
+
+
                 { key: rider, value: 'bhaiiii', partition: location.toLowerCase() == 'north'? 0:1}
                 // { key: 'key2', value: 'hey hey!', partition: 1 }
             ],
