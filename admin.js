@@ -1,5 +1,8 @@
 const { kafka } = require('./client');
+require('dotenv').config();
 
+const kafkatopic = process.env.KAFKA_TOPIC;
+console.log(kafkatopic)
 async function init() {
     console.log("init started");
     const admin = kafka.admin()
@@ -8,13 +11,13 @@ async function init() {
     await admin.createTopics({
         topics: [
             {
-                topic: "rider2",
+                topic: kafkatopic,
                 numPartitions: 2,
             },
         ],
     })
 
-    console.log("topic  and partitions are created");
+    console.log("topic and partitions are created");
 
     // remember to connect and disconnect when you are done
     await admin.connect()
